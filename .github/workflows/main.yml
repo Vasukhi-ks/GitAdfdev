@@ -14,20 +14,18 @@ jobs:
 
       - name: Validate ARM template
         uses: Azure/data-factory-validate-action@v1.1.5
-     
 
       - name: Export Azure Data Factory
         id: export
         uses: Azure/data-factory-export-action@v1.2.0
-     
-      
+
       - name: Publish ARM template
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: adf-armtemplate
           path: ${{ steps.export.outputs.arm-template-directory }}
           if-no-files-found: error
-  
+
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -35,8 +33,8 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          enable-AzPSSession: true 
-     
+          enable-AzPSSession: true
+
       - name: Download ARM template
         uses: actions/download-artifact@v3
         with:
@@ -45,5 +43,5 @@ jobs:
       - name: Deploy resources
         uses: Azure/data-factory-deploy-action@v1.2.0
         with:
-          resourceGroupName: ${{ secrets.AZURE_RG }} 
-          dataFactoryName: ${{ secrets.AZURE_DATA_FACTORY }} 
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          dataFactoryName: ${{ secrets.AZURE_DATA_FACTORY }}
