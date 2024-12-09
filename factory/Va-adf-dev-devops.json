@@ -1,0 +1,9 @@
+{
+	"name": "Va-adf-dev-devops",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "980ee738-d1a0-4a9f-8715-6b33ddab87b1",
+		"tenantId": "66dcfa27-76d0-441b-a5b4-887d94b085cb"
+	}
+}
