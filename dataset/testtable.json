@@ -1,0 +1,26 @@
+{
+	"name": "testtable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Testsqldatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sno",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sname",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "test"
+		}
+	}
+}
